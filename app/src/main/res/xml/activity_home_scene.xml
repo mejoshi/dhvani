@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@+id/image_view_play_music_player"
+               motion:framePosition="90"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/song_name_music_player"
+               motion:framePosition="90"
+               android:alpha="0" />
+       </KeyFrameSet>
+        <OnSwipe motion:touchAnchorId="@+id/container_main_screen_music_player" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/container_main_screen_music_player"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            motion:layout_constraintHorizontal_bias="0.5"
+            motion:layout_constraintTop_toTopOf="@+id/include_toolbar"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintBottom_toBottomOf="@+id/home_frame_layout"
+            motion:layout_constraintVertical_bias="1.0" />
+        <Constraint
+            android:id="@+id/recyle_view_music_player"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/home_frame_layout"
+            motion:layout_constraintTop_toBottomOf="@+id/container_main_screen_music_player"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintVertical_bias="1.0" />
+        <Constraint
+            android:id="@+id/bottomNavigationView"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:alpha="1"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/main_image_view_music_player"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/container_main_screen_music_player"
+            motion:layout_constraintTop_toTopOf="@id/container_main_screen_music_player"
+            motion:layout_constraintStart_toStartOf="@id/container_main_screen_music_player" />
+        <Constraint
+            android:id="@+id/main_image_view_music_player"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/container_main_screen_music_player"
+            motion:layout_constraintTop_toTopOf="@id/container_main_screen_music_player"
+            motion:layout_constraintStart_toStartOf="@id/container_main_screen_music_player" />
+        <Constraint
+            android:id="@+id/image_view_play_music_player"
+            motion:layout_constraintEnd_toEndOf="@id/container_main_screen_music_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@id/container_main_screen_music_player"
+            android:layout_marginEnd="16dp"
+            android:alpha="1"
+            motion:layout_constraintTop_toTopOf="@id/container_main_screen_music_player" />
+        <Constraint
+            android:id="@+id/song_name_music_player"
+            motion:layout_constraintEnd_toStartOf="@+id/image_view_play_music_player"
+            motion:layout_constraintStart_toEndOf="@+id/main_image_view_music_player"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/image_view_play_music_player"
+            android:layout_marginEnd="12dp"
+            android:alpha="1"
+            android:layout_marginStart="8dp"
+            motion:layout_constraintTop_toTopOf="@+id/image_view_play_music_player" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/container_main_screen_music_player"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            motion:layout_constraintHorizontal_bias="0.5"
+            motion:layout_constraintTop_toTopOf="@+id/include_toolbar"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/include_toolbar"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/include_toolbar"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+    </ConstraintSet>
+</MotionScene>

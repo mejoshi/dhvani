@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/search_user_dp_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxHeight="60dp"
+        android:maxWidth="60dp"
+        android:minWidth="60dp"
+        android:minHeight="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/search_user_fullname_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="user_name"
+        android:textColor="#212121"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/search_follow_search_button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/search_follow_search_button"
+        app:layout_constraintTop_toTopOf="@+id/search_user_dp_imageView" />
+
+    <Button
+        android:id="@+id/search_follow_search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Follow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toEndOf="@+id/search_user_dp_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/search_user_fullname_et" />
+
+    <Button
+        android:id="@+id/search_following_search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        android:text="Following"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/orange_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toEndOf="@+id/search_user_dp_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/search_user_fullname_et" />
+</androidx.constraintlayout.widget.ConstraintLayout>

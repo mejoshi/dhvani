@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/top_navigation_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:background="@color/white"
+    android:outlineAmbientShadowColor="@color/black"
+    android:elevation="4dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dhvani"
+        android:textColor="#212121"
+        android:textSize="20sp"
+        android:textFontWeight="700">
+
+    </TextView>
+
+</androidx.appcompat.widget.Toolbar>
