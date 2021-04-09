@@ -1,14 +1,18 @@
 package com.joshi.dhvaniimplementing01.adaptors;
 
 
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -19,6 +23,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.joshi.dhvaniimplementing01.R;
 import com.joshi.dhvaniimplementing01.models.UserSongUploadDetails;
@@ -60,6 +65,7 @@ public class PostAdaptors extends FirestoreRecyclerAdapter<UserSongUploadDetails
         System.out.println("URL is " + model.getUser_song_storage_url());
 
         mediaPlayerSet(model.getUser_song_storage_url());
+
     }
 
     private void mediaPlayerSet(String url){
@@ -135,8 +141,12 @@ public class PostAdaptors extends FirestoreRecyclerAdapter<UserSongUploadDetails
             user_play_button = itemView.findViewById(R.id.user_post_song_play_button);
 //            user_pause_button = itemView.findViewById(R.id.user_post_song_pause_button);
             song_duration_end = itemView.findViewById(R.id.song_duration_tv2);
-
         }
+
+    }
+
+    public void deleteItem(int position){
+        getSnapshots().getSnapshot(position).getReference().delete();
     }
 
     private String milliSecondToTimer(long milli_second){

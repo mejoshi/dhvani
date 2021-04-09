@@ -3,7 +3,9 @@ package com.joshi.dhvaniimplementing01.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,7 +39,7 @@ public class HomeFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
         firestore_db = FirebaseFirestore.getInstance();
         postRef = firestore_db.collection("users").document(mAuth.getUid()).collection("music_info");
-        Query query = postRef.orderBy("user_song_name", Query.Direction.ASCENDING);
+        Query query = postRef.orderBy("user_song_name", Query.Direction.DESCENDING);
         FirestoreRecyclerOptions<UserSongUploadDetails> options = new FirestoreRecyclerOptions.Builder<UserSongUploadDetails>()
                 .setQuery(query,UserSongUploadDetails.class)
                 .build();
@@ -46,6 +48,22 @@ public class HomeFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(postAdaptors);
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                postAdaptors.deleteItem(viewHolder.getAdapterPosition());
+            }
+        }).attachToRecyclerView(recyclerView);
+
+
+
+
         music_genre_classification = view.findViewById(R.id.music_genre_classification_app);
         music_genre_classification.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,10 +74,6 @@ public class HomeFragment extends Fragment {
         });
 
         return view;
-    }
-
-    private void setupRecyclerView() {
-
     }
 
     @Override
